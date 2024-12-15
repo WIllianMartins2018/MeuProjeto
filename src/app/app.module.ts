@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { importProvidersFrom, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,9 @@ import { ContatoComponent } from './institucional/contato/contato.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { DataBindingComponent } from './demos/data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
+import { ProdutoService } from './produtos/produtos.service';
+import { ListaProdutoComponent } from './produtos/lista-produto/lista-produto.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,14 +23,17 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     SobreComponent,
     ContatoComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    ListaProdutoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
+    importProvidersFrom(HttpClientModule),
+    ProdutoService,
     { provide: APP_BASE_HREF, useValue : '/'} // CASO QUEIRA COLOCAR ALGUM PREFIXO
   ],
   bootstrap: [AppComponent]
