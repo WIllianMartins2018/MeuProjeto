@@ -1,6 +1,11 @@
 import { importProvidersFrom, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+import { registerLocaleData } from '@angular/common';
+import localPt from '@angular/common/locales/pt';
+registerLocaleData(localPt);
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
